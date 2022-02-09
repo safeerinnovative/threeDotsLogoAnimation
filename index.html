@@ -5,33 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animated Logo</title>
-    <style>
-        .main-div div{position: relative;height: 90vh;}
-        .main-div div img{opacity: 0;width: 400px;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);transition: .3s;}
-        span#first-sp,span#second-sp,span#third-sp{width:15px;height:15px;border-radius:100px;background:rgb(81, 0, 128);position:absolute;left:38%;top:44.5%;z-index: 1;}
-        span#second-sp{top:46.5%;background-color: rgb(209, 68, 92);}
-        span#third-sp{top:48.5%;background-color: rgb(59, 185, 194);}
-        .theAnimation1{animation: movingCircle1 1.3s cubic-bezier( 0, 0, 0.92, 1 );}
-        @keyframes movingCircle1 {
-            0%{width: 15px;height: 15px;}
-            50%{width: 250px;height: 20px;border-radius: 15px;}
-            100%{left: 61%;width: 12px;height: 12px;border-radius: 100px;background-color: rgb(235, 77, 103);}
-        }
-        .theAnimation2{animation: movingCircle2 1.3s cubic-bezier( 0, 0, .88, 1 );}
-        @keyframes movingCircle2 {
-            0%{width: 15px;height: 15px;}
-            50%{width: 250px;height: 20px;border-radius: 15px;}
-            100%{left: 61%;width: 12px;height: 12px;border-radius: 100px;background-color: rgb(235, 77, 103);}
-        }
-        .theAnimation3{animation: movingCircle3 1.3s cubic-bezier( 0, 0, 0.98, 1 );}
-        @keyframes movingCircle3 {
-            0%{width: 15px;height: 15px;}
-            50%{width: 250px;height: 20px;border-radius: 15px;}
-            100%{left: 61%;width: 12px;height: 12px;border-radius: 100px;background-color: rgb(235, 77, 103);}
-        }
-        .stay-right{left: 61% !important;width: 12px !important;height: 12px !important;background-color: rgb(235, 77, 103) !important;}
-        .show{opacity: 1 !important;}
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" />
 </head>
 <body onload="putAnimation()">
     <section>
@@ -43,6 +18,16 @@
                 <img id="image" src="./1.png" alt="">
             </div>
         </div>
+        <!-- <div class="intro-div" id="intro-id">
+            <div>
+                <h1 id="intro-txt">Welcome To The Space Full Of Innovations!</h1>
+            </div>
+        </div> -->
+
+        <div class="circle">
+            <div class="noise animated"></div>
+        </div>
+
     </section>
     <script>
         function putAnimation(){
@@ -50,6 +35,7 @@
                 animate1.classList.add('stay-right');
                 animate2.classList.add('stay-right');
                 animate3.classList.add('stay-right');
+                bringIntro();
             }, 1300);
             setTimeout(() => {
                 document.getElementById('image').classList.add('show')
@@ -60,6 +46,11 @@
             animate2.classList.add('theAnimation2')
             let animate3 = document.getElementById('third-sp');
             animate3.classList.add('theAnimation3')
+            // 
+            function bringIntro(){
+                document.getElementById('intro-id').classList.add('intro-need-show');
+                document.getElementById('intro-txt').classList.add('intro-need-animation');
+            }
         }
     </script>
 </body>
